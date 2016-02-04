@@ -1,3 +1,18 @@
+/*Fancy Ampersands
+ */
+
+@font-face {
+	font-family: Ampersand;
+	src: local('Palatino-Italic'),local('Garamond-Italic'), local('Baskerville-Italic'), local('GoudyOldStyleT-Italic');
+	unicode-range: U+26;
+}
+
+h1 {
+	font-family: Ampersand, Helvetica, sans-serif;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 /* reset */
 * {
 	margin: 0;
@@ -6,10 +21,12 @@
 }
 
 body {
+	max-width: 100%;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: flex-start;
+	font-family: 'Open Sans', sans-serif;
 }
 
 /* header */
@@ -22,6 +39,7 @@ body > header h1 {
 	color: white;
 	text-align: center;
 	margin-top: .5em;
+	font-family: Ampersand, Helvetica, sans-serif;
 }
 
 body > header figure {
@@ -41,14 +59,18 @@ body > header p {
 }
 
 body > header nav {
-	padding: 0 1.5em;
 	margin-top: 2em;
 }
 
 body > header nav ul li {
-	margin: 1.5em 0;
+	padding: 1em 1.6em;
 	list-style-type: none;
 	vertical-align: middle;
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+body > header nav ul li:hover {
+	background-color: rgba(255,255,255,0.1);
 }
 
 body > header nav ul li a {
@@ -101,8 +123,10 @@ main > article:first-of-type p {
 
 /* password */
 #password {
-	width: 100%;
+	width: 25%;
 	margin: 2em 0;
+	padding: 1rem;
+	border: 2px solid #6D86B3;
 }
 
 #password header {
@@ -119,7 +143,7 @@ main > article:first-of-type p {
 
 #password fieldset label input {
 	display: block;
-	width: 20%;
+	width: 100%;
 	margin: 1em 0;
 	border: none;
 	border-bottom: 2px inset #6D86B3;
@@ -133,6 +157,8 @@ main > article:first-of-type p {
 	margin: 1em 0;
 	padding: 1em;
 	background-color: #6D86B3;
+	color: white;
+	font-size: 1em;
 	border: none;
 	border-radius: .5em;
 }
@@ -156,11 +182,13 @@ main > article:first-of-type p {
 	width: 45%;
 	margin: 0 0.5em;
 	display: inline-block;
+	color: white;
 }
 
 #photo-albums figure img {
 	width: 100%;
 }
+
 
 /* footer */ 
 footer {
@@ -168,14 +196,77 @@ footer {
 	padding: 1rem;
 	display: flex;
 	flex-direction: row;
-	background-color: grey;
+	background-color: #C7C7C7;
 	justify-content: space-between;
 }
-
+footer * {
+	color: white;
+}
 footer address {
-	order: 3;
+	order: 1;
 }
 
 footer ul li {
 	list-style-type: none;
+}
+
+
+/* mediaqueries */
+
+@media only screen and (max-width: 850px) {
+	
+	/* header */
+	body > header{
+		width: 100%;
+	}
+	
+	body > header figure img {
+		width: 25%;
+		border-radius: 50%;
+		border: 5px solid #6D86B3;
+	}
+
+
+	body > header nav {
+	     padding: 0; 
+	}
+	
+	body > header nav ul {
+		text-align: center;
+	    overflow: scroll;
+	    height: 30vh;
+	}
+
+	body > header nav ul li {
+	    display: inline-block;
+	    width: 40%;
+	}
+
+	body > header nav ul li svg {
+	    width: 1.5em;
+	    height: auto;
+	}
+	
+	/* main */
+	main {
+	    width: 100%;
+	}
+	/* footer */ 
+	footer {
+		flex-direction: column;
+		flex-wrap: wrap;
+		text-align: center;
+		font-size: .9em;
+		padding: .5em 0;
+	}
+
+	footer > nav, footer > ul {
+		margin-bottom: 1em;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	#photo-albums figure {
+	    width: 80%;
+	}
 }
