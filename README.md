@@ -5,4 +5,4 @@ Tom Snepvangers
 
 =====================
 
-[Demo exercise 1](http://tomsnep.github.io/css-to-the-rescue/exercise1/ "Demo exercise 1")
+[Demo exercise 1](http://tomsnep.github.io/CTTR/exercise-1/ "Demo exercise 1")
