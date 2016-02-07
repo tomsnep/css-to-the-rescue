@@ -261,7 +261,7 @@ footer ul li {
 
 /* mediaqueries */
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 60em) {
 	
 	/* header */
 	body > header{
@@ -316,12 +316,12 @@ footer ul li {
 		padding: .5em 0;
 	}
 
-	footer > nav, footer > ul {
+	footer > nav{
 		margin-bottom: 1em;
 	}
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 40em) {
 	#photo-albums figure {
 	    width: 80%;
 	}
