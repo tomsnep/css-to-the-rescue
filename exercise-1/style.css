@@ -78,7 +78,6 @@ header nav {
 }
 
 nav ul li {
-	padding: 1em 1.6em;
 	list-style-type: none;
 	vertical-align: middle;
 	border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -86,16 +85,18 @@ nav ul li {
 	        transition: .5s all ease;
 }
 
-nav ul li:hover {
-	background-color: rgba(255,255,255,0.1);
-}
-
 ul li a {
+	display: block;
+	padding: 1em 1.6em;
 	text-decoration: none;
 	fill: #fff;
 	color: #fff;
 	-webkit-transition: .5s all ease;
 	        transition: .5s all ease;
+}
+
+nav ul a:hover {
+	background-color: rgba(255,255,255,0.1);
 }
 
 ul li svg {
