@@ -5,7 +5,7 @@ Tom Snepvangers
 
 =====================
 
-[Demo exercise 1](http://tomsnep.github.io/CTTR/exercise-1/ "Demo exercise 1")
+[Exercises can be found here](http://tomsnep.github.io)
 
 
 Aria:
