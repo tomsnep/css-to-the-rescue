@@ -22,7 +22,7 @@ h1 {
 
 /* body */
 
-body {
+#overlay {
 	max-width: 100%;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -41,10 +41,12 @@ body {
 	    -ms-flex-align: start;
 	        align-items: flex-start;
 	font-family: 'Open Sans', sans-serif;
+	-webkit-transition: 1s all ease;
+	        transition: 1s all ease;
 }
 
 /* header */
-body > header {
+#overlay > header {
 	width: 20%;
 	border-left: 0;
 	border-top: 0;
@@ -112,9 +114,6 @@ main {
 }
 
 /*profile picture*/
-/*#profile-picture:not([open]) {
-	display: none;
-}*/
 
 #profile-picture{
 	display: none;
@@ -123,17 +122,29 @@ main {
 #profile-picture:target {
 	display: block;
 	width: 70vw;
+	padding: 16px;
 	padding: 1rem;
 	position: absolute;
 	top: -30%;
 	left: 50%;
-	transform: translate(-50%, 50%);
+	z-index: 2;
+	-webkit-transform: translate(-50%, 50%);
+	    -ms-transform: translate(-50%, 50%);
+	        transform: translate(-50%, 50%);
 	background-color: #4CBA9C;
 	color: #fff;
-	box-shadow: 0 0 0 100vmax rgba(255,255,255,.8);
+	
 }
 
+#profile-picture:target + #overlay{
+	filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
+	-webkit-filter: blur(3px);
+	        filter: blur(3px);
+}
+
+
 #profile-picture div:first-of-type{
+	padding: 16px 0;
 	padding: 1rem 0;
 	text-align: center;
 	border-bottom: 2px solid #fff;
@@ -149,12 +160,15 @@ main {
 
 #profile-picture figure {
 	max-width: 300px;
+	max-width: -webkit-min-content;
+	max-width: -moz-min-content;
 	max-width: min-content;
 	margin: auto;
 	text-align: center;
 }
 
 #profile-picture figure > img { 
+	margin: 0 3px; 
 	margin: 0 .2rem;
 	max-width: 8em;
 	border-radius: 50%;
@@ -174,11 +188,14 @@ main {
 }
 
 .filter-effects figure img{
-	transition: .5s all ease;
+	-webkit-transition: .5s all ease;
+	        transition: .5s all ease;
 }
 
 .filter-effects figure img:hover {
-	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	    -ms-transform: scale(1.1);
+	        transform: scale(1.1);
 }
 
 [role=button] {
@@ -202,38 +219,48 @@ main {
 
 .effect-01{
 	-webkit-filter: grayscale(1);
-  	filter: grayscale(1);
+  	filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /></filter></svg>#filter');
+  	-webkit-filter: grayscale(1);
+  	        filter: grayscale(1);
 }
 
 .effect-02{
 	-webkit-filter: sepia(1);
-	  filter: sepia(1);
+	  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.393 0.769 0.189 0 0 0.349 0.686 0.168 0 0 0.272 0.534 0.131 0 0 0 0 0 1 0" /></filter></svg>#filter');
+	  -webkit-filter: sepia(1);
+	          filter: sepia(1);
 }
 
 .effect-03{
 	-webkit-filter: saturate(2);
-  	filter: saturate(2);
+  	filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="1.7870000000000001 -0.715 -0.072 0 0 -0.213 1.305 -0.072 0 0 -0.213 -0.715 1.9280000000000002 0 0 0 0 0 1 0" /></filter></svg>#filter');
+  	-webkit-filter: saturate(2);
+  	        filter: saturate(2);
 }
 
 .effect-04{
 	webkit-filter: hue-rotate(90deg);
-  	filter: hue-rotate(90deg);
+  	filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="hueRotate" color-interpolation-filters="sRGB" values="90" /></filter></svg>#filter');
+  	-webkit-filter: hue-rotate(90deg);
+  	        filter: hue-rotate(90deg);
 }
 
 .effect-05{
 	-webkit-filter: brightness(2);
-  	filter: brightness(2);
+  	filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="2" /><feFuncG type="linear" slope="2" /><feFuncB type="linear" slope="2" /></feComponentTransfer></filter></svg>#filter');
+  	-webkit-filter: brightness(2);
+  	        filter: brightness(2);
 }
 
 /* first article */
-article:first-of-type {
+main article:first-of-type {
 	margin-top: 1em;
 	padding: 2em;
 	border-bottom: 2px solid #97D5BC;
 	position: relative;
 }
 
-article:first-of-type header h1{
+main article:first-of-type header h1{
 	font-size: 2em;
 	text-align: left;
 }
@@ -243,17 +270,17 @@ header h1 span {
 	font-weight: lighter;
 }
 
-article:first-of-type header h2 {
+main article:first-of-type header h2 {
 	margin: .5em 0;
 	font-weight: lighter;
 	font-style: italic;
 }
 
-article:first-of-type p {
+main article:first-of-type p {
 	margin-top: 1em;
 }
 
-article:first-of-type a {
+main article:first-of-type a {
 	color: #000;
 }
 
@@ -261,6 +288,7 @@ article:first-of-type a {
 #password {
 	width: 25%;
 	margin: 2em 0;
+	padding: 16px;
 	padding: 1rem;
 	border: 2px solid #737372;
 	color: #737372;
@@ -338,6 +366,7 @@ footer {
 	width: 100%;
 	padding: 16px;
 	padding: 16px;
+	padding: 16px;
 	padding: 1rem;
 	background-color: #4CBA9C;
 	color: #fff;
@@ -377,27 +406,27 @@ footer ul li {
 @media only screen and (max-width: 60em) {
 	
 	/* header */
-	body > header{
+	#overlay > header{
 		width: 100%;
 	}
 	
-	body > header figure img {
+	#overlay > header figure img {
 		width: 25%;
 		border-radius: 50%;
 	}
 
 
-	body > header nav {
+	#overlay > header nav {
 	     padding: 0; 
 	}
 	
-	body > header nav ul {
+	#overlay > header nav ul {
 		text-align: center;
 	    overflow: scroll;
 	    height: 30vh;
 	}
 
-	body > header nav ul li {
+	#overlay > header nav ul li {
 	    display: inline-block;
 	    width: 40%;
 	}
@@ -408,6 +437,11 @@ footer ul li {
 	    padding: 0 .5em;
 	}
 	
+	/*profile-picture*/
+
+	#profile-picture:target {
+		width: 95vw;
+	}
 
 	/* password */ 
 	#password{
